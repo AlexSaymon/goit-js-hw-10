@@ -35,10 +35,10 @@ flatpickr(elements.input, options);
 function updateDisplay(timeDifference) {
   const updatedTime = convertMs(timeDifference);
   const { days, hours, minutes, seconds } = updatedTime;
-  elements.days.textContent = days;
-  elements.hours.textContent = hours;
-  elements.minutes.textContent = minutes;
-  elements.seconds.textContent = seconds;
+  elements.days.textContent = String(days).padStart(2, `0`);
+  elements.hours.textContent = String(hours).padStart(2, `0`);
+  elements.minutes.textContent = String(minutes).padStart(2, `0`);
+  elements.seconds.textContent = String(seconds).padStart(2, `0`);
 }
 
 elements.startBtn.addEventListener(`click`, () => {

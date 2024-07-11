@@ -13,12 +13,14 @@ const showToast = message => iziToast.show({ message });
 elements.sbmtBtn.addEventListener(`click`, event => {
   event.preventDefault();
 
-  const delay = elements.delay.value;
+  const delay = Number(elements.delay.value);
+  const fulfilledChecked = elements.fulfilled.checked;
+  const rejectedChecked = elements.rejected.checked;
   new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (elements.fulfilled.checked) {
+      if (fulfilledChecked) {
         resolve(`✅ Fulfilled promise in ${delay}ms`);
-      } else {
+      } else if (rejectedChecked) {
         reject(`❌ Rejected promise in ${delay}ms`);
       }
     }, delay);
